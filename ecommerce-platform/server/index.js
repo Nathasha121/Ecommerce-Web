@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./config/db');
 const userRoutes = require('./routes/userRoutes')
+const productRoutes = require('./routes/productRoutes')
+
 require('dotenv').config();
 
 // Create express app
@@ -12,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // for parsing JSON requests
 app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes)
 
 // Test route
 app.get('/', (req, res) => {
